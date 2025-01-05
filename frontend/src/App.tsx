@@ -43,7 +43,7 @@ function App() {
 
       <Content style={{ padding: "20px" }}>
         <Row justify="center" style={{ paddingBottom: 20 }}>
-          <Col xs={24} sm={20} md={16} lg={12} xl={8}>
+          <Col>
             <ItemForm item={editItem} onResetItem={handleResetEditItem} />
           </Col>
         </Row>
