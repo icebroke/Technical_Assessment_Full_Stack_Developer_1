@@ -33,6 +33,7 @@
 
 ### API Endpoints
 1. **GET /api/items/** : Return list of all Items.
+   - Example usage: http://localhost:3000/api/items/
    - **Expected successfull response:**
    ```
    [
