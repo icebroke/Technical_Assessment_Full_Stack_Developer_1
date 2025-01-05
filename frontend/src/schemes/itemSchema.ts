@@ -8,8 +8,8 @@ export const itemSchema = z.object({
     .max(100, "Item's name must not exceed 100 characters"),
   description: z
     .string()
-    .min(1, "Item's description is required")
-    .max(500, "Item's description must not exceed 500 characters"),
+    .max(500, "Item's description must not exceed 500 characters")
+    .optional(),
   price: z
     .number()
     .positive()

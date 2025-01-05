@@ -19,7 +19,7 @@
    1. **id** (Primary Key, Auto-increment).
    2. **name** (String, required, max length: 100 characters)
    3. **description** (String, optional, max length: 500 characters)
-   4. **price** (Decimal, required, must be positive)
+   4. **price** (Decimal, required)
    5. **createdAt** (Timestamp, default to current timestamp)
    6. **updatedAt** (Timestamp, updated on modification)
 5. Then, run the project.
@@ -83,7 +83,7 @@
    - Expected successfull response:
    ```
     {
-        "message": "Successfully Saved.",
+        "message": "successfuly Saved.",
         "id": 15
     }
    ```
@@ -100,7 +100,7 @@
    - Expected successfull response:
    ```
     {
-        "message": "Successfully Saved."
+        "message": "successfuly Saved."
     }
    ```
 5. **DELETE /api/items/[id]** : Delete the Item data by Id.
@@ -108,7 +108,7 @@
    - Expected successfull response:
    ```
     {
-        "message": "Successfully Deleted."
+        "message": "successfuly Deleted."
     }
    ```
 
