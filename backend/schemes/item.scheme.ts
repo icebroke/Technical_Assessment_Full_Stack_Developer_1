@@ -11,7 +11,8 @@ export const itemSchema = z.object({
     .max(500, "Item's description must not exceed 500 characters"),
   price: z.number().positive().refine(
     (n) => {
-      return n.toString().split(".")[1].length <= 2;
+      const decimalPart = n.toString().split(".")[1];
+      return !decimalPart || decimalPart.length <= 2;
     },
     { message: "Max precision is 2 decimal places" }
   ),
