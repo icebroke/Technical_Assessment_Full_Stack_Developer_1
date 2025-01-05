@@ -1,35 +1,67 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Layout, Row, Col } from "antd";
+import ItemTable from "./features/items/itemTable";
+import { Item } from "./schemes/itemSchema";
+import "./App.css";
+import ItemForm from "./features/items/itemForm";
+import { useState } from "react";
+
+const { Header, Content, Footer } = Layout;
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [editItem, setEditItem] = useState<Item>();
+
+  const handleEdit = (item: Item) => {
+    if (item) {
+      setEditItem(item);
+    } else {
+      console.error("Selected edit Item is null.");
+    }
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <Layout
+      style={{
+        borderRadius: 5,
+        backgroundColor: "#bcc6cc",
+      }}
+    >
+      <Header
+        style={{
+          borderStartStartRadius: 5,
+          backgroundColor: "#ffffff",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <h1>CRUD Item</h1>
+      </Header>
+
+      <Content style={{ padding: "20px" }}>
+        <Row justify="center" style={{ paddingBottom: 20 }}>
+          <Col xs={24} sm={20} md={16} lg={12} xl={8}>
+            <ItemForm item={editItem} />
+          </Col>
+        </Row>
+        <hr />
+        <Row justify="center" style={{ paddingTop: 20 }}>
+          <Col span={24}>
+            <ItemTable onEdit={handleEdit} />
+          </Col>
+        </Row>
+      </Content>
+
+      <Footer
+        style={{
+          borderEndEndRadius: 5,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}>
+        <div>&copy; 2025 CRUD Item.</div>
+      </Footer>
+    </Layout>
+  );
 }
 
-export default App
+export default App;
