@@ -36,23 +36,23 @@
    - **Expected successfull response:**
    ```
    [
-    {
-        "id": 1,
-        "name": "item 1",
-        "description": "item number 1 dummy data",
-        "price": "11.11",
-        "createdAt": "2025-01-03T13:34:58.000Z",
-        "updatedAt": "2025-01-05T02:57:00.000Z"
-    },
-    {
-        "id": 2,
-        "name": "Item 2",
-        "description": "item number 2 qjwehkqwhekqwhe hqjwkejhqw",
-        "price": "20.11",
-        "createdAt": "2025-01-04T00:56:14.000Z",
-        "updatedAt": "2025-01-05T04:51:46.000Z"
-    },
-    ...
+        {
+            "id": 1,
+            "name": "item 1",
+            "description": "item number 1 dummy data",
+            "price": "11.11",
+            "createdAt": "2025-01-03T13:34:58.000Z",
+            "updatedAt": "2025-01-05T02:57:00.000Z"
+        },
+        {
+            "id": 2,
+            "name": "Item 2",
+            "description": "item number 2 qjwehkqwhekqwhe hqjwkejhqw",
+            "price": "20.11",
+            "createdAt": "2025-01-04T00:56:14.000Z",
+            "updatedAt": "2025-01-05T04:51:46.000Z"
+        },
+        ...
     ]
    ```
 2. **GET /api/items/[id]** : Return an Item object by Id.
