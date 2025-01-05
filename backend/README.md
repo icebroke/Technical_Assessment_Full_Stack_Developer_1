@@ -26,7 +26,7 @@
     ```
     npm run dev or pnpm dev
     ```
-6. If run successfully, this message shows:
+6. If run successfuly, this message shows:
     ```
     ⚡️[server]: Server is running at http://localhost:3000
     ```
@@ -34,7 +34,7 @@
 ### API Endpoints
 1. **GET /api/items/** : Return list of all Items.
    - Example usage: http://localhost:3000/api/items/
-   - **Expected successfull response:**
+   - **Expected successful response:**
    ```
    [
         {
@@ -59,7 +59,7 @@
 2. **GET /api/items/[id]** : Return an Item object by Id.
    - Parameter input: **api/items/[id]**
    - Example usage: http://localhost:3000/api/items/2
-   - Expected successfull response:
+   - Expected successful response:
    ```
     {
         "id": 2,
@@ -80,7 +80,7 @@
         "price": 12.11
     }
    ```
-   - Expected successfull response:
+   - Expected successful response:
    ```
     {
         "message": "successfuly Saved.",
@@ -97,7 +97,7 @@
         "price": 12.11
     }
    ```
-   - Expected successfull response:
+   - Expected successful response:
    ```
     {
         "message": "successfuly Saved."
@@ -105,7 +105,7 @@
    ```
 5. **DELETE /api/items/[id]** : Delete the Item data by Id.
    - Example usage: http://localhost:3000/api/items/19
-   - Expected successfull response:
+   - Expected successful response:
    ```
     {
         "message": "successfuly Deleted."
