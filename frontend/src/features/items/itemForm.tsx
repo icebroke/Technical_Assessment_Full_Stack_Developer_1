@@ -13,8 +13,11 @@ interface ItemFormProps {
 }
 
 const ItemForm: React.FC<ItemFormProps> = ({ item, onResetItem }) => {
-  const { itemLoading } = useSelector((state: RootState) => state.items);
+  const { itemLoading, itemSuccess } = useSelector(
+    (state: RootState) => state.items
+  );
   const [isEdit, setIsEdit] = useState(false);
+  const [itemDescription, setItemDescription] = useState<string>("");
   const [itemPrice, setItemPrice] = useState<number>(0);
   const [form] = Form.useForm();
   const dispatch = useDispatch<AppDispatch>();
@@ -22,6 +25,7 @@ const ItemForm: React.FC<ItemFormProps> = ({ item, onResetItem }) => {
   useEffect(() => {
     if (item) {
       setIsEdit(true);
+      setItemDescription(item.description ?? "");
       setItemPrice(Number(item.price));
       form.setFieldsValue(item);
     } else {
@@ -32,8 +36,16 @@ const ItemForm: React.FC<ItemFormProps> = ({ item, onResetItem }) => {
 
   const handleResetForm = () => {
     onResetItem();
+    
     setIsEdit(false);
+    setItemDescription("");
+    setItemPrice(0);
+  
     form.resetFields();
+
+    if (!itemSuccess) {
+      dispatch(getItems());
+    }
   };
 
   // Submit the data
@@ -42,6 +54,8 @@ const ItemForm: React.FC<ItemFormProps> = ({ item, onResetItem }) => {
       if (isEdit && item) {
         item.price = Number(item.price);
       }
+
+      item.description = itemDescription;
 
       // Validation
       const validateData = itemSchema.parse(item);
@@ -88,6 +102,15 @@ const ItemForm: React.FC<ItemFormProps> = ({ item, onResetItem }) => {
     },
   };
 
+  const handleItemDescriptionChange = (input: string | null) => {
+    if (input) {
+      setItemDescription(input);
+    } else {
+      form.resetFields(["description"]);
+      setItemDescription("");
+    }
+  };
+
   const handleItemPriceChange = (input: number | null) => {
     if (input) {
       setItemPrice(input);
@@ -122,8 +145,16 @@ const ItemForm: React.FC<ItemFormProps> = ({ item, onResetItem }) => {
           <Form.Item name="name" label="Name">
             <Input />
           </Form.Item>
-          <Form.Item name="description" label="Description">
-            <Input.TextArea />
+          <Form.Item
+            name="description"
+            label="Description"
+            rules={[
+              {
+                required: false,
+              },
+            ]}
+          >
+            <Input.TextArea value={itemDescription} onChange={(event) => handleItemDescriptionChange(event.target.value)}/>
           </Form.Item>
           <Form.Item
             name="price"

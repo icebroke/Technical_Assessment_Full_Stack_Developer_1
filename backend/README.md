@@ -19,21 +19,21 @@
    1. **id** (Primary Key, Auto-increment).
    2. **name** (String, required, max length: 100 characters)
    3. **description** (String, optional, max length: 500 characters)
-   4. **price** (Decimal, required, must be positive)
+   4. **price** (Decimal, required)
    5. **createdAt** (Timestamp, default to current timestamp)
    6. **updatedAt** (Timestamp, updated on modification)
 5. Then, run the project.
     ```
     npm run dev or pnpm dev
     ```
-6. The will run successfully, if this message shows:
+6. The will run successfuly, if this message shows:
     ```
     ⚡️[server]: Server is running at http://localhost:3000
     ```
 
 ### API Endpoints
 1. **GET /api/items/** : Return list of all Items object.
-   **Expected successfull response:**
+   **Expected successful response:**
    ```
    [
     {
@@ -58,7 +58,7 @@
 2. **GET /api/items/[id]** : Return an Item object by Id.
    Parameter input: **api/items/[id]**
    Example usage: http://localhost:3000/api/items/2
-   Expected successfull response:
+   Expected successful response:
    ```
     {
         "id": 2,
@@ -79,10 +79,10 @@
         "price": 12.11
     }
    ```
-   Expected successfull response:
+   Expected successful response:
    ```
     {
-        "message": "Successfully Saved.",
+        "message": "successfuly Saved.",
         "id": 15
     }
    ```
@@ -96,18 +96,18 @@
         "price": 12.11
     }
    ```
-   Expected successfull response:
+   Expected successful response:
    ```
     {
-        "message": "Successfully Saved."
+        "message": "successfuly Saved."
     }
    ```
 5. **DELETE /api/items/[id]** : Delete the Item data by Id.
    Example usage: http://localhost:3000/api/items/19
-   Expected successfull response:
+   Expected successful response:
    ```
     {
-        "message": "Successfully Deleted."
+        "message": "successfuly Deleted."
     }
    ```
 
