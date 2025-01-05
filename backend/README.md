@@ -116,6 +116,6 @@
 - ...
 
 ### TODO
-[] - Improve the Not Found handler
-[] - Implement pagination
-[] - Implement authentication
+- [ ] Improve the Not Found handler
+- [ ] Implement pagination
+- [ ] Implement authentication

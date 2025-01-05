@@ -22,4 +22,4 @@
 - ...
 
 ### TODO
-[] - Overhaul the UI & UX.
+- [ ] Overhaul the UI & UX.
