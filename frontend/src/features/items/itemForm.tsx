@@ -138,7 +138,6 @@ const ItemForm: React.FC<ItemFormProps> = ({ item, onResetItem }) => {
               step={0.01}
               precision={2}
               style={{ width: "100%" }}
-              stringMode
             />
           </Form.Item>
           <Space>
