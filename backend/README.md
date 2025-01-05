@@ -26,14 +26,14 @@
     ```
     npm run dev or pnpm dev
     ```
-6. The will run successfully, if this message shows:
+6. If run successfully, this message shows:
     ```
     ⚡️[server]: Server is running at http://localhost:3000
     ```
 
 ### API Endpoints
 1. **GET /api/items/** : Return list of all Items.
-   **Expected successfull response:**
+   - **Expected successfull response:**
    ```
    [
     {
@@ -56,9 +56,9 @@
     ]
    ```
 2. **GET /api/items/[id]** : Return an Item object by Id.
-   Parameter input: **api/items/[id]**
-   Example usage: http://localhost:3000/api/items/2
-   Expected successfull response:
+   - Parameter input: **api/items/[id]**
+   - Example usage: http://localhost:3000/api/items/2
+   - Expected successfull response:
    ```
     {
         "id": 2,
@@ -70,8 +70,8 @@
     }
    ```
 3. **POST /api/items/** : Create/Add an item.
-   Example usage: http://localhost:3000/api/items/
-   Body content format:
+   - Example usage: http://localhost:3000/api/items/
+   - Body content format:
    ```
     {
         "name": "Item 3",
@@ -79,7 +79,7 @@
         "price": 12.11
     }
    ```
-   Expected successfull response:
+   - Expected successfull response:
    ```
     {
         "message": "Successfully Saved.",
@@ -87,8 +87,8 @@
     }
    ```
 4. **PUT /api/items/[id]** : Update the Item data by Id and content.
-   Example usage: http://localhost:3000/api/items/2
-   Body content format:
+   - Example usage: http://localhost:3000/api/items/2
+   - Body content format:
    ```
     {
         "name": "Item 2",
@@ -96,15 +96,15 @@
         "price": 12.11
     }
    ```
-   Expected successfull response:
+   - Expected successfull response:
    ```
     {
         "message": "Successfully Saved."
     }
    ```
 5. **DELETE /api/items/[id]** : Delete the Item data by Id.
-   Example usage: http://localhost:3000/api/items/19
-   Expected successfull response:
+   - Example usage: http://localhost:3000/api/items/19
+   - Expected successfull response:
    ```
     {
         "message": "Successfully Deleted."
