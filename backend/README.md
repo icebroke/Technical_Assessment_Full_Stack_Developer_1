@@ -7,7 +7,7 @@
     ```
     npm install or pnpm install
     ```
-3. Make sure that the database configuration setup as same as in the **.env.dev** file.
+3. Make sure that the database configuration setup is the same as in the **.env.dev** file.
     ```
     # Database Config
     DB_HOST="localhost"
@@ -32,7 +32,7 @@
     ```
 
 ### API Endpoints
-1. **GET /api/items/** : Return list of all Items object.
+1. **GET /api/items/** : Return list of all Items.
    **Expected successfull response:**
    ```
    [
