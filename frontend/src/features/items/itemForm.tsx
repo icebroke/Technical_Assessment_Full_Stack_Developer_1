@@ -75,14 +75,18 @@ const ItemForm: React.FC<ItemFormProps> = ({ item }) => {
 
   const validateDecimalRule: Rule = {
     validator: (_, value) => {
-      if (
-        value === undefined ||
-        (typeof value === "number" &&
-          Number.isFinite(value) &&
-          value.toFixed(2).length <= 10)
-      ) {
+      if (value === undefined || value === null) {
+        return Promise.reject(
+          new Error(
+            "Please enter a valid number with up to two decimal places."
+          )
+        );
+      }
+
+      if (/^\d+(\.\d{1,2})?$/.test(value.toString())) {
         return Promise.resolve();
       }
+
       return Promise.reject(
         new Error("Please enter a valid number with up to two decimal places.")
       );
@@ -121,8 +125,11 @@ const ItemForm: React.FC<ItemFormProps> = ({ item }) => {
           <Form.Item name="description" label="Description">
             <Input.TextArea />
           </Form.Item>
-          <Form.Item name="price" label="Price (RM)" 
-              rules={[validateDecimalRule]}>
+          <Form.Item
+            name="price"
+            label="Price (RM)"
+            rules={[validateDecimalRule]}
+          >
             <InputNumber
               value={itemPrice}
               onChange={handleItemPriceChange}
