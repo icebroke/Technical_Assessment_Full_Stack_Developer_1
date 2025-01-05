@@ -114,3 +114,8 @@
 ### Known Issues
 - The **GET /api/items/** does not implement pagination.
 - ...
+
+### TODO
+[] - Improve the Not Found handler
+[] - Implement pagination
+[] - Implement authentication

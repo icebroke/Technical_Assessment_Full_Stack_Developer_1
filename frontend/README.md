@@ -20,3 +20,6 @@
 
 ### Known Issues
 - ...
+
+### TODO
+[] - Overhaul the UI & UX.
