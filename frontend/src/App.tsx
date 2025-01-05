@@ -8,7 +8,11 @@ import { useState } from "react";
 const { Header, Content, Footer } = Layout;
 
 function App() {
-  const [editItem, setEditItem] = useState<Item>();
+  const [editItem, setEditItem] = useState<Item | null>(null);
+
+  const handleResetEditItem = () => {
+    setEditItem(null);
+  }
 
   const handleEdit = (item: Item) => {
     if (item) {
@@ -40,7 +44,7 @@ function App() {
       <Content style={{ padding: "20px" }}>
         <Row justify="center" style={{ paddingBottom: 20 }}>
           <Col xs={24} sm={20} md={16} lg={12} xl={8}>
-            <ItemForm item={editItem} />
+            <ItemForm item={editItem} onResetItem={handleResetEditItem} />
           </Col>
         </Row>
         <hr />

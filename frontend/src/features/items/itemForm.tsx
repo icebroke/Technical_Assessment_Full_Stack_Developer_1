@@ -9,9 +9,10 @@ import { Rule } from "antd/es/form";
 
 interface ItemFormProps {
   item?: Item | null;
+  onResetItem: () => void;
 }
 
-const ItemForm: React.FC<ItemFormProps> = ({ item }) => {
+const ItemForm: React.FC<ItemFormProps> = ({ item, onResetItem }) => {
   const { itemLoading } = useSelector((state: RootState) => state.items);
   const [isEdit, setIsEdit] = useState(false);
   const [itemPrice, setItemPrice] = useState<number>(0);
@@ -30,7 +31,7 @@ const ItemForm: React.FC<ItemFormProps> = ({ item }) => {
   }, [item, form]);
 
   const handleResetForm = () => {
-    item = null;
+    onResetItem();
     setIsEdit(false);
     form.resetFields();
   };
@@ -75,15 +76,9 @@ const ItemForm: React.FC<ItemFormProps> = ({ item }) => {
 
   const validateDecimalRule: Rule = {
     validator: (_, value) => {
-      if (value === undefined || value === null) {
-        return Promise.reject(
-          new Error(
-            "Please enter a valid number with up to two decimal places."
-          )
-        );
-      }
+      const numericRegex = /^\d+(\.\d{1,2})?$/;
 
-      if (/^\d+(\.\d{1,2})?$/.test(value.toString())) {
+      if (value && numericRegex.test(value.toString())) {
         return Promise.resolve();
       }
 
@@ -94,7 +89,12 @@ const ItemForm: React.FC<ItemFormProps> = ({ item }) => {
   };
 
   const handleItemPriceChange = (input: number | null) => {
-    setItemPrice(input ?? 0);
+    if (input) {
+      setItemPrice(input);
+    } else {
+      form.resetFields(["price"]);
+      setItemPrice(0);
+    }
   };
 
   return (
@@ -131,12 +131,14 @@ const ItemForm: React.FC<ItemFormProps> = ({ item }) => {
             rules={[validateDecimalRule]}
           >
             <InputNumber
+              type="number"
               value={itemPrice}
               onChange={handleItemPriceChange}
               placeholder="Enter a decimal number"
               step={0.01}
               precision={2}
               style={{ width: "100%" }}
+              stringMode
             />
           </Form.Item>
           <Space>
