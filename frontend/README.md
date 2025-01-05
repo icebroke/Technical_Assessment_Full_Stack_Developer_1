@@ -19,5 +19,4 @@
     ```
 
 ### Known Issues
-- The **Price** input still allow the user to enter non-numeric value. But, upon the data submission have validation to check the data.
 - ...
